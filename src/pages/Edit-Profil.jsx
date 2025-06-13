@@ -16,81 +16,38 @@ export default function AddEditProfile() {
     checkExistingProfile();
   }, []);
 
-  // const checkExistingProfile = async () => {
-  //   try {
-  //     const userId = localStorage.getItem('user_id') || '1'; // Simulasi untuk testing
-      
-  //     const response = await fetch(`https://nutriscan-capstone-backend-production.up.railway.app/api/profil/${userId}`);
-      
-  //     if (response.ok) {
-  //       const existingProfile = await response.json();
-  //       console.log('Existing profile found:', existingProfile);
-        
-  //       setProfileData({
-  //         nama: existingProfile.nama || '',
-  //         foto: null // Reset foto, user harus upload ulang
-  //       });
-        
-  //       // Set preview dari data yang ada (jika ada)
-  //       if (existingProfile.foto) {
-  //         setPhotoPreview(existingProfile.foto);
-  //       }
-        
-  //       setIsNewProfile(false);
-  //     } else if (response.status === 404) {
-  //       console.log('No existing profile, creating new one');
-  //       setIsNewProfile(true);
-  //     } else {
-  //       console.error('Error checking profile:', response.statusText);
-  //     }
-  //   } catch (error) {
-  //     console.error('Error checking existing profile:', error);
-  //     setIsNewProfile(true); // Default to new profile on error
-  //   }
-  // };
-
   const checkExistingProfile = async () => {
-  try {
-    const userId = localStorage.getItem('user_id') || '1';
-    
-    const response = await fetch(`https://nutriscan-capstone-backend-production.up.railway.app/api/profil/${userId}`);
-    
-    const contentType = response.headers.get('content-type');
-    
-    if (!response.ok) {
-      if (response.status === 404) {
+    try {
+      const userId = localStorage.getItem('user_id') || '1'; // Simulasi untuk testing
+      
+      const response = await fetch(`https://nutriscan-capstone-backend-production.up.railway.app/api/profil/${userId}`);
+      
+      if (response.ok) {
+        const existingProfile = await response.json();
+        console.log('Existing profile found:', existingProfile);
+        
+        setProfileData({
+          nama: existingProfile.nama || '',
+          foto: null // Reset foto, user harus upload ulang
+        });
+        
+        // Set preview dari data yang ada (jika ada)
+        if (existingProfile.foto) {
+          setPhotoPreview(existingProfile.foto);
+        }
+        
+        setIsNewProfile(false);
+      } else if (response.status === 404) {
         console.log('No existing profile, creating new one');
         setIsNewProfile(true);
-        return;
+      } else {
+        console.error('Error checking profile:', response.statusText);
       }
-      throw new Error(`Gagal memuat profil. Status: ${response.status}`);
+    } catch (error) {
+      console.error('Error checking existing profile:', error);
+      setIsNewProfile(true); // Default to new profile on error
     }
-
-    if (!contentType || !contentType.includes('application/json')) {
-      const text = await response.text();
-      throw new Error(`Respon bukan JSON: ${text}`);
-    }
-
-    const existingProfile = await response.json();
-    console.log('Existing profile found:', existingProfile);
-    
-    setProfileData({
-      nama: existingProfile.nama || '',
-      foto: null,
-    });
-    
-    if (existingProfile.foto) {
-      setPhotoPreview(existingProfile.foto);
-    }
-    
-    setIsNewProfile(false);
-  } catch (error) {
-    console.error('Error checking existing profile:', error.message);
-    setError(error.message);
-    setIsNewProfile(true);
-  }
-};
-
+  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
