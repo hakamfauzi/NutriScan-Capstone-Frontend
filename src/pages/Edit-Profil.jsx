@@ -20,7 +20,7 @@ export default function AddEditProfile() {
     try {
       const userId = localStorage.getItem('user_id') || '1'; // Simulasi untuk testing
       
-      const response = await fetch(`nutriscan-capstone-backend-production.up.railway.app/api/profil/${userId}`);
+      const response = await fetch(`https://nutriscan-capstone-backend-production.up.railway.app/api/profil/${userId}`);
       
       if (response.ok) {
         const existingProfile = await response.json();

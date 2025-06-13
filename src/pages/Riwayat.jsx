@@ -23,7 +23,7 @@ const Riwayat = () => {
       setLoading(true);
       const userId = getUserId();
       
-      const response = await fetch(`nutriscan-capstone-backend-production.up.railway.app/api/riwayat/${userId}`);
+      const response = await fetch(`https://nutriscan-capstone-backend-production.up.railway.app/api/riwayat/${userId}`);
       
       if (!response.ok) {
         if (response.status === 404) {
