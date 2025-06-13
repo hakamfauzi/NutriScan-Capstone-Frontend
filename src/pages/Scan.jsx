@@ -383,9 +383,9 @@ function Scan() {
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-green-600 mb-2"></div>
             <span className="text-green-600 font-medium">
               {isSaving ? 'Menyimpan ke riwayat...' :
-               !modelLoaded && !previewImage ? 'Memuat model AI...' :
-               previewImage ? (modelLoaded ? 'Menganalisis dengan AI...' : 'Menganalisis gambar...') : 
-               'Membuka kamera...'}
+              !modelLoaded && !previewImage ? 'Memuat model AI...' :
+              previewImage ? (modelLoaded ? 'Menganalisis dengan AI...' : 'Menganalisis gambar...') : 
+              'Membuka kamera...'}
             </span>
           </div>
         )}
