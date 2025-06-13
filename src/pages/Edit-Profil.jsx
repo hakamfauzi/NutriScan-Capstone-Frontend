@@ -144,8 +144,8 @@ export default function AddEditProfile() {
       // Determine method and URL
       const method = isNewProfile ? 'POST' : 'PUT';
       const url = isNewProfile 
-        ? 'nutriscan-capstone-backend-production.up.railway.app/api/profil' 
-        : `nutriscan-capstone-backend-production.up.railway.app/api/profil/${userId}`;
+        ? 'https://nutriscan-capstone-backend-production.up.railway.app/api/profil' 
+        : `https://nutriscan-capstone-backend-production.up.railway.app/api/profil/${userId}`;
       
       console.log('=== SENDING REQUEST ===');
       console.log('Method:', method);
