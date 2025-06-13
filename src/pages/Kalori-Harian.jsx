@@ -28,7 +28,7 @@ function KaloriHarian() {
       setLoading(true);
       console.log('Fetching user data...');
       
-      const response = await fetch('http://localhost:5000/api/users');
+      const response = await fetch('nutriscan-capstone-backend-production.up.railway.app/api/users');
       
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -80,7 +80,7 @@ function KaloriHarian() {
     try {
       console.log(`Fetching riwayat for user ${userId} on date ${tanggal}`);
       
-      const response = await fetch(`http://localhost:5000/api/riwayat/${userId}`);
+      const response = await fetch(`nutriscan-capstone-backend-production.up.railway.app/api/riwayat/${userId}`);
       
       if (!response.ok) {
         if (response.status === 404) {

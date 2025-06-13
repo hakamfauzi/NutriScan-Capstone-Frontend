@@ -20,7 +20,7 @@ export default function AddEditProfile() {
     try {
       const userId = localStorage.getItem('user_id') || '1'; // Simulasi untuk testing
       
-      const response = await fetch(`http://localhost:5000/api/profil/${userId}`);
+      const response = await fetch(`nutriscan-capstone-backend-production.up.railway.app/api/profil/${userId}`);
       
       if (response.ok) {
         const existingProfile = await response.json();
@@ -144,8 +144,8 @@ export default function AddEditProfile() {
       // Determine method and URL
       const method = isNewProfile ? 'POST' : 'PUT';
       const url = isNewProfile 
-        ? 'http://localhost:5000/api/profil' 
-        : `http://localhost:5000/api/profil/${userId}`;
+        ? 'nutriscan-capstone-backend-production.up.railway.app/api/profil' 
+        : `nutriscan-capstone-backend-production.up.railway.app/api/profil/${userId}`;
       
       console.log('=== SENDING REQUEST ===');
       console.log('Method:', method);

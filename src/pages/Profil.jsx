@@ -168,8 +168,8 @@ const Profil = () => {
 
         // Fetch data dari kedua endpoint
         const [userResponse, profilResponse] = await Promise.all([
-          fetch(`http://localhost:5000/api/users/${userId}`),
-          fetch(`http://localhost:5000/api/profil/${userId}`)
+          fetch(`nutriscan-capstone-backend-production.up.railway.app/users/${userId}`),
+          fetch(`nutriscan-capstone-backend-production.up.railway.app/api/profil/${userId}`)
         ]);
         
         if (!userResponse.ok) {

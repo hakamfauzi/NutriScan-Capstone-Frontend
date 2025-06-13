@@ -73,7 +73,7 @@ function Scan() {
 
       console.log('Mengirim data ke riwayat:', historyData);
 
-      const response = await fetch('http://localhost:5000/api/riwayat', {
+      const response = await fetch('nutriscan-capstone-backend-production.up.railway.app/api/riwayat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

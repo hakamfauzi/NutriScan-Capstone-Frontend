@@ -79,7 +79,7 @@ function Form() {
       };
 
       // Coba kirim ke API, tapi kalau gagal tetap lanjut
-        const response = await fetch('http://localhost:5000/api/users', {
+        const response = await fetch('nutriscan-capstone-backend-production.up.railway.app/api/users', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
