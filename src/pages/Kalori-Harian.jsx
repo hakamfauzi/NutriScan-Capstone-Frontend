@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Utensils, Target, TrendingUp, Clock, LayoutGrid, AlertCircle } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+
+
 
 function KaloriHarian() {
+  const navigate = useNavigate();
   const [userProfile, setUserProfile] = useState(null);
   const [userData, setUserData] = useState({
     targetKalori: 2000,
@@ -490,7 +494,7 @@ function KaloriHarian() {
               {/* Button Beranda */}
               <div className="mt-2 pt-6 border-t border-gray-200 w-full px-4">
                 <button 
-                  onClick={() => window.location.href = '/beranda'}
+                  onClick={() => navigate('/Beranda')}
                   className="w-full bg-[#5b7f5d] text-white font-semibold py-4 px-8 rounded-xl hover:bg-[#4a6b4d] transition-all duration-200 flex items-center justify-center gap-2 min-w-full shadow-lg"
                 >
                   <LayoutGrid className="w-5 h-5" />
@@ -570,7 +574,7 @@ function KaloriHarian() {
             {isToday && (
               <div className="mt-2 pt-6 border-t border-gray-200 w-full px-4">
                 <button 
-                  onClick={() => window.location.href = '/scan'}
+                  onClick={() => navigate('/Scan')}
                   className="w-full bg-[#5b7f5d] text-white font-semibold py-4 px-8 rounded-xl hover:bg-[#4a6b4d] transition-all duration-200 flex items-center justify-center gap-2 min-w-full shadow-lg"
                 >
                   <Utensils className="w-5 h-5" />
